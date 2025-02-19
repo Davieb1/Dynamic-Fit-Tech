@@ -1,0 +1,507 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: white;
+}
+
+h1, h2, h3, h4, h5 {
+    text-align: center;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    border-radius: 8px;
+}
+
+.green-btn {
+    background-color: #32cd32;
+    color: black;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.green-btn:hover {
+    background-color: #28a428;
+}
+
+.outline-btn {
+    background-color: transparent;
+    color: #32cd32;
+    border: 2px solid #32cd32;
+    border-radius: 8px;
+}
+
+.outline-btn:hover {
+    background-color: #32cd32;
+    color: black;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #32cd32;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.nav-links li a:hover {
+    color: #32cd32;
+}
+
+.logo img {
+    height: 100px;
+    border-radius: 12px;
+}
+
+.cta-btn {
+    margin-right: 5rem;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.cta-btn:hover {
+    background-color: #32cd32;
+    color: black;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 10px 20px;
+    background: url('images/Gym-Background.jpg') bottom/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+}
+
+.hero span {
+    color: #32cd32;
+}
+
+/* Business Audit Tool Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #222;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0px 6px 20px rgba(50, 205, 50, 0.3);
+    border: 1px solid #32cd32;
+}
+
+.audit-modal-content h2 {
+    color: #32cd32;
+}
+
+.audit-modal .close {
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: white;
+}
+
+.audit-modal select, .audit-modal button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #32cd32;
+    background: #111;
+    color: white;
+}
+
+.audit-modal button {
+    background: #32cd32;
+    color: black;
+    font-weight: bold;
+}
+
+.audit-modal button:hover {
+    background: #28a428;
+}
+
+
+/* Sections */
+section {
+    padding: 80px 20px;
+}
+
+.about, .services, .portfolio, .testimonials, .contact, .faq {
+    text-align: center;
+}
+
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background: linear-gradient(135deg, #111, #222);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 4px 15px rgba(50, 205, 50, 0.2);
+    border: 1px solid #32cd32;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 8px 20px rgba(50, 205, 50, 0.4);
+}
+
+/* Portfolio Section */
+.portfolio {
+    padding: 60px 0;
+    background-color: #111;
+}
+
+.portfolio h2 {
+    margin-bottom: 20px;
+}
+
+.portfolio-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.featured-project {
+    max-width: 800px;
+    margin: auto;
+    background: #222;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 20px rgba(50, 205, 50, 0.3);
+    text-align: center;
+}
+
+.featured-project img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.portfolio-carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.portfolio-carousel img {
+    max-width: 250px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.portfolio-carousel img:hover {
+    transform: scale(1.05);
+}
+
+/* Testimonials */
+.testimonials .cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.testimonial {
+    background: linear-gradient(135deg, #111, #222);
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 400px;
+    box-shadow: 0px 4px 15px rgba(50, 205, 50, 0.3);
+}
+
+/* Contact Form */
+.contact {
+    padding: 50px;
+    text-align: center;
+    background: #111;
+    border-radius: 15px;
+    border: 1px solid #32cd32;
+    margin: 50px auto;
+    max-width: 600px;
+    box-shadow: 0px 6px 20px rgba(50, 205, 50, 0.3);
+}
+
+.contact form {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background: #222;
+    border-radius: 10px;
+}
+
+input, textarea {
+    padding: 12px;
+    border: 1px solid #32cd32;
+    border-radius: 8px;
+    background: #111;
+    color: white;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #ccc;
+}
+
+footer {
+    padding: 20px 0;
+    background-color: #111;
+    color: white;
+    text-align: center;
+    border-top: 1px solid #32cd32;
+
+}
+
+/* Blog Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: white;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #32cd32;
+}
+
+.blog {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.blog-post {
+    background: linear-gradient(135deg, #111, #222);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 15px rgba(50, 205, 50, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: left;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 20px rgba(50, 205, 50, 0.4);
+}
+
+.blog-post h2 {
+    margin-bottom: 10px;
+}
+
+.blog-post p {
+    color: #ccc;
+}
+
+.blog-post small {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.blog-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.blog-actions button {
+    background: #32cd32;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.blog-actions button:hover {
+    background: #28a428;
+}
+
+.admin-controls {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    background: #111;
+    border-radius: 12px;
+    max-width: 600px;
+    box-shadow: 0px 4px 15px rgba(50, 205, 50, 0.3);
+}
+
+.admin-controls h2 {
+    margin-bottom: 20px;
+}
+
+.admin-controls button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 8px;
+    background: #32cd32;
+    color: black;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.admin-controls button:hover {
+    background: #28a428;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background: #32cd32;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.pagination button:hover {
+    background: #28a428;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    .portfolio-carousel, .testimonial-carousel {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Hide Run Business Audit Button on screens 1080px and smaller */
+@media (max-width: 1080px) {
+    .cta-btn {
+        display: none;
+    }
+}
+
+/* Hamburger Menu for Small Screens */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        position: relative;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        right: 30px;
+        top: 15px;
+    }
+
+    .logo {
+        left: 20px;
+        top: 10px;
+        max-width: 150px;
+    }
+}

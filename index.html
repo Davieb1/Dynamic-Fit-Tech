@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dynamic Fit Tech - Your Fitness Business, Digitally Transformed. We specialize in high-performance fitness websites, scalable apps, automation, and lead generation.">
+    <title>Dynamic Fit Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                <img src="images/Logo.webp" alt="Dynamic Fit Tech Logo"></a>
+            </div>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                &#9776;
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">How We Help</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <button class="cta-btn" onclick="openAuditTool()">Run Business Audit</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Dynamic Fit Tech</h1>
+        <h2>Your Fitness Business, <span>Digitally Transformed</span></h2>
+        <div class="buttons">
+            <button class="green-btn" onclick="openAuditTool()">Run Business Audit</button>
+            <button class="green-btn">Book Free Consultation</button>
+        </div>
+    </section>
+
+    <!-- Business Audit Modal -->
+    <div id="auditModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAuditTool()">&times;</span>
+            <h2>Business Audit Tool</h2>
+            <form id="auditForm">
+                <p>1. Does your website generate leads?</p>
+                <select name="question1">
+                    <option value="1">No</option>
+                    <option value="2">Rarely</option>
+                    <option value="3">Sometimes</option>
+                    <option value="4">Often</option>
+                    <option value="5">Yes</option>
+                </select>
+                <p>2. Do you rank on Google’s first page?</p>
+                <select name="question2">
+                    <option value="1">No</option>
+                    <option value="2">Rarely</option>
+                    <option value="3">Sometimes</option>
+                    <option value="4">Often</option>
+                    <option value="5">Yes</option>
+                </select>
+                <p>3. Is your website mobile-responsive?</p>
+                <select name="question3">
+                    <option value="1">No</option>
+                    <option value="2">Rarely</option>
+                    <option value="3">Sometimes</option>
+                    <option value="4">Often</option>
+                    <option value="5">Yes</option>
+                </select>
+                <p>4. Do you have an online booking system?</p>
+                <select name="question4">
+                    <option value="1">No</option>
+                    <option value="2">Rarely</option>
+                    <option value="3">Sometimes</option>
+                    <option value="4">Often</option>
+                    <option value="5">Yes</option>
+                </select>
+                <p>5. Are you running any paid ads or SEO campaigns?</p>
+                <select name="question5">
+                    <option value="1">No</option>
+                    <option value="2">Rarely</option>
+                    <option value="3">Sometimes</option>
+                    <option value="4">Often</option>
+                    <option value="5">Yes</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+            <p id="auditResult"></p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>At Dynamic Fit Tech, we help fitness businesses thrive online with custom websites, scalable apps, and lead-generating solutions.</p>
+        <div class="cards">
+            <div class="card blur-effect">
+                <i class="fas fa-bolt"></i>
+                <h3>Fast & Reliable</h3>
+                <p>We build high-performance websites with speed and reliability in mind.</p>
+            </div>
+            <div class="card blur-effect">
+                <i class="fas fa-chart-line"></i>
+                <h3>Growth-Oriented</h3>
+                <p>We implement proven strategies to scale your fitness business.</p>
+            </div>
+            <div class="card blur-effect">
+                <i class="fas fa-users"></i>
+                <h3>Client-Focused</h3>
+                <p>Your success is our priority. We tailor every solution to your needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>How We Help</h2>
+        <div class="cards">
+            <div class="card blur-effect"> <h3>Custom Websites</h3> <p>Tailor-made fitness websites that drive engagement.</p> </div>
+            <div class="card blur-effect"> <h3>Scalable Apps</h3> <p>Growth-focused mobile and web apps for fitness professionals.</p> </div>
+            <div class="card blur-effect"> <h3>Automation & Booking</h3> <p>Seamless scheduling and automation tools.</p> </div>
+            <div class="card blur-effect"> <h3>SEO & Lead Generation</h3> <p>Maximize online visibility and client reach.</p> </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <h2>Our Work</h2>
+        <p>A selection of projects that we have worked on.</p>
+        <div class="portfolio-content">
+            <div class="featured-project">
+                <img src="images/Featured-Site1.png" alt="Featured Project">
+                <button class="green-btn"><a href="https://davieb1.github.io/Fitness-Website-1/" target="_blank">View Project</a></button>
+            </div>
+            <div class="portfolio-carousel">
+                <img src="images/Featured-Site2.png" alt="Project 2">
+                <img src="images/Featured-Site3.png" alt="Project 3">
+                <img src="images/Featured-Site4.png" alt="Project 4">
+                <img src="images/Featured-Site2.png" alt="Project 2">
+                <img src="images/Featured-Site3.png" alt="Project 3">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="cards">
+            <div class="card blur-effect">
+                <p>"Dynamic Fit Tech helped me grow my business exponentially!"</p>
+                <h4>John Doe</h4>
+            </div>
+            <div class="card blur-effect">
+                <p>"Amazing service! Highly recommend!"</p>
+                <h4>Jane Smith</h4>
+            </div>
+            <div class="card blur-effect">
+                <p>"Amazing service! Highly recommend!"</p>
+                <h4>Jane Smith</h4>
+            </div>
+            <!-- <div class="card blur-effect">
+                <p>"Amazing service! Highly recommend!"</p>
+                <h4>Jane Smith</h4>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="contact border-box">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required><br><br>
+            <input type="email" name="email" placeholder="Your Email" required><br><br>
+            <textarea name="message" placeholder="Your Message & Full Name" required></textarea><br><br>
+            <button type="submit" class="green-btn">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Dynamic Fit Tech. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
