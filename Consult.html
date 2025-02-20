@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Free Consultation | Dynamic Fit Tech</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-lg w-full">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Book Your Free Consultation</h2>
+        <p class="text-gray-600 mb-6">Tell us how we can help transform your fitness business.</p>
+
+        <form id="consultForm" class="space-y-4">
+            <!-- Full Name -->
+            <div>
+                <label class="block text-gray-700 font-medium">Full Name</label>
+                <input type="text" name="name" required
+                    class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-green-400">
+            </div>
+
+            <!-- Email Address -->
+            <div>
+                <label class="block text-gray-700 font-medium">Email Address</label>
+                <input type="email" name="email" required
+                    class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-green-400">
+            </div>
+
+            <!-- Business Name -->
+            <div>
+                <label class="block text-gray-700 font-medium">Business Name</label>
+                <input type="text" name="business_name" required
+                    class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-green-400">
+            </div>
+
+            <!-- Website -->
+            <div>
+                <label class="block text-gray-700 font-medium">Website (if applicable)</label>
+                <input type="url" name="website"
+                    class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-green-400"
+                    placeholder="https://yourwebsite.com">
+            </div>
+
+            <!-- Help Needed -->
+            <div>
+                <label class="block text-gray-700 font-medium">What do you need help with?</label>
+                <select name="help_needed" required
+                    class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-green-400">
+                    <option value="Website Design & Development">Website Design and Development</option>
+                    <option value="SEO & Online Visibility">SEO and Online Visibility</option>
+                    <option value="Membership & Booking System">Membership and Booking System</option>
+                    <option value="Custom Fitness App Development">Custom Fitness App Development</option>
+                    <option value="Branding & Marketing Strategy">Branding and Marketing Strategy</option>
+                    <option value="Other">Other (Please specify below)</option>
+                </select>
+            </div>
+
+            <!-- Additional Details -->
+            <div>
+                <label class="block text-gray-700 font-medium">Additional Details</label>
+                <textarea name="additional_details" rows="4"
+                    class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-green-400"
+                    placeholder="Tell us more about your requirements..."></textarea>
+            </div>
+
+            <!-- Preferred Consultation Method -->
+            <div>
+                <label class="block text-gray-700 font-medium">Preferred Consultation Method</label>
+                <div class="flex gap-4 mt-2">
+                    <label class="flex items-center"><input type="radio" name="consultation_method" value="Teams"
+                            required class="mr-2"> Teams</label>
+                    <label class="flex items-center"><input type="radio" name="consultation_method" value="Phone Call"
+                            class="mr-2"> Phone Call</label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition">
+                Submit Consultation Request
+            </button>
+        </form>
+    </div>
+
+    <script>
+    document.getElementById("consultForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    console.log("🚀 Capturing Form Data Before Sending:");
+
+    emailjs.sendForm("service_5f04hcr", "template_m7hkszj", this, "_PSlmVL5WjMgyj3zX")
+    .then(response => {
+        console.log("✅ Email Sent Successfully", response);
+        alert("Your consultation request has been submitted successfully!");
+        this.reset();
+    })
+    .catch(error => {
+        console.error("❌ Email Sending Failed", error);
+        alert("Failed to send consultation request. Please try again.");
+    });
+});
+
+    </script>
+</body>
+
+</html>

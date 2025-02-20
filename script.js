@@ -58,14 +58,15 @@ function sendEmail(event) {
     event.preventDefault();
     emailjs.sendForm("service_5f04hcr", "template_8s7nkje", event.target, "_PSlmVL5WjMgyj3zX")
         .then(response => {
-            alert("Your message has been sent successfully!");
+            alert("✅ Your message has been sent successfully!");
             event.target.reset();
         })
         .catch(error => {
-            alert("Failed to send message. Please try again.");
+            alert("❌ Failed to send message. Please try again.");
         });
 }
 document.getElementById("contactForm").addEventListener("submit", sendEmail);
+
 
 // Hamburger Menu Toggle
 const hamburger = document.querySelector(".hamburger");
