@@ -1,0 +1,302 @@
+/* Global Styling */
+body {
+    background: black;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Blog Container */
+.blog-container {
+    width: 90%;
+    max-width: 850px;
+    background: #111;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+    text-align: center;
+}
+
+/* Blog Header */
+h1 {
+    font-size: 26px;
+    color: #32cd32;
+    text-shadow: 2px 2px 10px rgba(50, 205, 50, 0.8);
+}
+
+.blog-subtitle {
+    font-size: 16px;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+/* Admin Section (Buttons) */
+.admin-section {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+button {
+    background: #32cd32;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #28a428;
+}
+
+/* Blog Form (Hidden Until Admin Opens) */
+#blogFormContainer {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #32cd32;
+    border-radius: 5px;
+    background: #222;
+    color: white;
+}
+
+textarea {
+    height: 100px;
+}
+
+/* Blog List */
+.blog-preview {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.blog-preview:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Highlighted Most Liked Blog */
+.pinned-blog {
+    background: rgba(50, 205, 50, 0.3);
+    font-weight: bold;
+}
+
+/* Blog Metadata */
+.blog-date {
+    font-size: 14px;
+    color: #bbb;
+    margin-bottom: 10px;
+}
+
+/* Read More Button */
+.read-more {
+    color: #32cd32;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Like & Dislike Section */
+.like-dislike {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.like-btn, .dislike-btn {
+    background: none;
+    color: white;
+    border: 1px solid #32cd32;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.like-btn:hover, .dislike-btn:hover {
+    background: #32cd32;
+    color: black;
+}
+
+/* Blog Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto; /* Enable scrolling if needed */
+    padding: 20px;
+}
+
+.modal-content {
+    background: black;
+    color: #32cd32;
+    padding: 30px;
+    width: 70%; /* Increased width for better readability */
+    max-width: 900px; /* Ensures it doesn't get too large */
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+    overflow-y: auto; /* Allows scrolling if content is long */
+    max-height: 80vh; /* Prevents modal from taking full screen */
+}
+
+/* Close Button */
+.close-modal {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-modal:hover {
+    color: #32cd32;
+}
+
+/* Improved Blog Content Readability */
+.modal-body {
+    text-align: left;
+    line-height: 1.6; /* Improves readability */
+    font-size: 18px;
+    color: #333;
+}
+
+.modal-body p {
+    margin-bottom: 15px; /* Adds spacing between paragraphs */
+    transition: color 0.3s ease-in-out;
+    color: white;
+}
+
+/* Like & Dislike Section */
+.like-dislike-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.like-btn, .dislike-btn {
+    background: #32cd32;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    margin: 0 10px;
+}
+
+.like-btn:hover, .dislike-btn:hover {
+    background: #2eb82e;
+}
+
+/* Animation for Modal */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+/* Hide Elements Initially */
+.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Set up the page as a grid */
+    body {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+    }
+
+    /* Logo centered and fixed */
+    .logo {
+        position: fixed;
+        margin-left: 5rem;
+        top: 10px;
+        left: 50%;
+        width: 120px;
+        z-index: 1000;
+    }
+
+    /* Ensure blog container is properly spaced */
+    .blog-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-left: 0.5rem;
+        gap: 15px;
+        max-width: 95%;
+        margin-top: 100px; /* Leaves space below the fixed logo */
+        padding: 15px;
+    }
+
+    /* Blog posts structure */
+    .blog-preview {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* Modal adjustments */
+    .modal-content {
+        max-width: 90%;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    /* Buttons - Keep them evenly spaced */
+    .like-dislike-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .like-btn, .dislike-btn {
+        padding: 10px;
+        font-size: 14px;
+        width: 100%;
+        text-align: center;
+    }
+}
+

@@ -1,222 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dynamic Fit Tech Blog - Stay updated with the latest fitness tech insights, trends, and tips for your fitness business.">
-    <title>Blog - Dynamic Fit Tech</title>
+    <title>Blog | Dynamic Fit Tech</title>
+    <link rel="stylesheet" href="blog.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
+    <script defer src="blog.js"></script>
 </head>
+
 <body>
+
     <header>
-    <nav>
-        <div class="logo">
-            <a href="index.html">
-            <img src="images/Logo.webp" alt="Dynamic Fit Tech Logo"></a>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/Logo.webp" alt="Dynamic Fit Tech Logo"></a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="blog-container">
+        <h1>🚀 Dynamic Fit Tech Blog</h1>
+        <p class="blog-subtitle">Stay updated with the latest fitness business strategies and tech solutions.</p>
+
+        <!-- Admin Panel for Blog Management -->
+        <div class="admin-section">
+            <button id="addBlogBtn">➕ Add New Blog</button>
+            <button id="deleteSelectedBlogs">🗑 Delete Selected Blog</button>
+            <button id="deleteAllBlogs">🔥 Delete All Blogs</button> <!-- ADDED DELETE ALL BUTTON -->
+
+            <div id="blogFormContainer" class="hidden">
+                <input type="password" id="adminPassword" placeholder="Enter Admin Password">
+                <input type="text" id="blogTitle" placeholder="Blog Title">
+                <textarea id="blogContent" placeholder="Write your blog content here..."></textarea>
+                <button id="submitBlog">Post Blog</button>
+            </div>
         </div>
 
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <!-- <li><a href="#about">About</a></li>
-            <li><a href="#services">How We Help</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="blog.html">Blog</a></li> -->
-        </ul>
-        <button class="cta-btn" onclick="openAuditTool()">Run Business Audit</button>
-    </nav>
-</header>
+        <hr>
 
-    <!-- Blog Section -->
-    <section class="blog">
-        <h1>Our Latest Blogs</h1>
-        <div id="blog-container"></div>
-    </section>
+        <!-- Blog Listing -->
+        <div id="blogList">
+            <!-- Blogs will be dynamically inserted here -->
+        </div>
 
-    <!-- Admin Controls -->
-    <section class="admin-controls">
-        <h2>Admin Panel</h2>
-        <button onclick="addNewBlog()">Add New Blog</button>
-        <button onclick="deleteSelectedBlog()">Delete Selected Blog</button>
-        <button onclick="deleteAllBlogs()">Delete All Blogs</button>
-        <input type="password" id="admin-password" placeholder="Enter Password Delete All">
-    </section>
-
-    <script>
-        let blogs = [];
-
-        function addNewBlog() {
-            let title = prompt("Enter blog title:");
-            let content = prompt("Enter blog content:");
-            let date = new Date().toLocaleString();
-            if (title && content) {
-                blogs.push({ title, content, date, likes: 0, dislikes: 0 });
-                displayBlogs();
-            }
-        }
-
-        function displayBlogs() {
-            let blogContainer = document.getElementById("blog-container");
-            blogContainer.innerHTML = "";
-            blogs.sort((a, b) => b.likes - a.likes);
-            blogs.forEach((blog, index) => {
-                blogContainer.innerHTML += `
-                    <div class="blog-post">
-                        <h2>${blog.title}</h2>
-                        <p>${blog.content}</p>
-                        <small>Posted on: ${blog.date}</small>
-                        <button onclick="likeBlog(${index})">👍 ${blog.likes}</button>
-                        <button onclick="dislikeBlog(${index})">👎 ${blog.dislikes}</button>
-                        <input type="radio" name="deleteBlog" value="${index}">
-                    </div>
-                `;
-            });
-        }
-
-        function likeBlog(index) {
-            blogs[index].likes++;
-            displayBlogs();
-        }
-
-        function dislikeBlog(index) {
-            blogs[index].dislikes++;
-            displayBlogs();
-        }
-
-        function deleteSelectedBlog() {
-            let selected = document.querySelector("input[name='deleteBlog']:checked");
-            if (selected) {
-                blogs.splice(selected.value, 1);
-                displayBlogs();
-            }
-        }
-
-        function deleteAllBlogs() {
-            let password = document.getElementById("admin-password").value;
-            if (password === "admin123") {
-                if (confirm("Are you sure you want to delete all blogs?")) {
-                    blogs = [];
-                    displayBlogs();
-                }
-            } else {
-                alert("Incorrect password");
-            }
-        }
-
-        function paginateBlogs() {
-            let pageSize = 10;
-            let pageCount = Math.ceil(blogs.length / pageSize);
-            let blogContainer = document.getElementById("blog-container");
-            blogContainer.innerHTML = "";
-            for (let i = 0; i < pageSize && i < blogs.length; i++) {
-                let blog = blogs[i];
-                blogContainer.innerHTML += `
-                    <div class="blog-post">
-                        <h2>${blog.title}</h2>
-                        <p>${blog.content}</p>
-                        <small>Posted on: ${blog.date}</small>
-                        <button onclick="likeBlog(${i})">👍 ${blog.likes}</button>
-                        <button onclick="dislikeBlog(${i})">👎 ${blog.dislikes}</button>
-                        <input type="radio" name="deleteBlog" value="${i}">
-                    </div>
-                `;
-            }
-
-            if (pageCount > 1) {
-                let pagination = document.createElement("div");
-                pagination.classList.add("pagination");
-                for (let i = 1; i <= pageCount; i++) {
-                    let pageBtn = document.createElement("button");
-                    pageBtn.innerText = i;
-                    pageBtn.onclick = () => loadPage(i - 1);
-                    pagination.appendChild(pageBtn);
-                }
-                blogContainer.appendChild(pagination);
-            }
-        }
-
-        function loadPage(pageIndex) {
-            let pageSize = 10;
-            let start = pageIndex * pageSize;
-            let end = start + pageSize;
-            let blogContainer = document.getElementById("blog-container");
-            blogContainer.innerHTML = "";
-            for (let i = start; i < end && i < blogs.length; i++) {
-                let blog = blogs[i];
-                blogContainer.innerHTML += `
-                    <div class="blog-post">
-                        <h2>${blog.title}</h2>
-                        <p>${blog.content}</p>
-                        <small>Posted on: ${blog.date}</small>
-                        <button onclick="likeBlog(${i})">👍 ${blog.likes}</button>
-                        <button onclick="dislikeBlog(${i})">👎 ${blog.dislikes}</button>
-                        <input type="radio" name="deleteBlog" value="${i}">
-                    </div>
-                `;
-            }
-        }
-
-        // Blog Pagination
-let currentPage = 0;
-const pageSize = 10;
-
-function paginateBlogs() {
-    const blogContainer = document.getElementById("blog-container");
-    blogContainer.innerHTML = "";
-    let start = currentPage * pageSize;
-    let end = start + pageSize;
-    let paginatedBlogs = blogs.slice(start, end);
-    
-    paginatedBlogs.forEach((blog, index) => {
-        blogContainer.innerHTML += `
-            <div class="blog-post">
-                <h2>${blog.title}</h2>
-                <p>${blog.content}</p>
-                <small>Posted on: ${blog.date}</small>
-                <button onclick="likeBlog(${index})">👍 ${blog.likes}</button>
-                <button onclick="dislikeBlog(${index})">👎 ${blog.dislikes}</button>
-                <input type="radio" name="deleteBlog" value="${index}">
+        <!-- Modal for Full Blog View -->
+        <div id="blogModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <p class="blog-meta" id="modalDate"></p>
+                <div class="modal-body">
+                    <p id="modalContent"></p>
+                </div>
+                <div class="like-dislike-section">
+                    <button class="like-btn">👍 Like (<span id="modalLikes">0</span>)</button>
+                    <button class="dislike-btn">👎 Dislike</button>
+                </div>
             </div>
-        `;
-    });
+        </div>
 
-    generatePaginationControls();
-}
+    </div>
 
-function generatePaginationControls() {
-    let pageCount = Math.ceil(blogs.length / pageSize);
-    let paginationContainer = document.createElement("div");
-    paginationContainer.classList.add("pagination");
-    
-    for (let i = 0; i < pageCount; i++) {
-        let pageBtn = document.createElement("button");
-        pageBtn.innerText = i + 1;
-        pageBtn.onclick = () => {
-            currentPage = i;
-            paginateBlogs();
-        };
-        paginationContainer.appendChild(pageBtn);
-    }
-    document.getElementById("blog-container").appendChild(paginationContainer);
-}
-
-// Blog Like/Dislike System
-function likeBlog(index) {
-    blogs[index].likes++;
-    paginateBlogs();
-}
-
-function dislikeBlog(index) {
-    blogs[index].dislikes++;
-    paginateBlogs();
-}
-
-// Initialize pagination
-paginateBlogs();
-
-    </script>
 </body>
+
 </html>
