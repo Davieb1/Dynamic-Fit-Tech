@@ -12,10 +12,18 @@ body {
     min-height: 100vh;
 }
 
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
 /* Blog Container */
 .blog-container {
-    width: 90%;
-    max-width: 850px;
+    margin-top: 150px;
+    width: 100%;
+    max-width: 1300px;
     background: #111;
     padding: 25px;
     border-radius: 10px;
@@ -257,7 +265,7 @@ textarea {
 
     /* Ensure blog container is properly spaced */
     .blog-container {
-        display: grid;
+        display: none; /* Change to Grid when ready to view on mobile again*/
         grid-template-columns: 1fr;
         margin-left: 0.5rem;
         gap: 15px;

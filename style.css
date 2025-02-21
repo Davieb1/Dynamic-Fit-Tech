@@ -504,4 +504,8 @@ h1, h2, h3 {
         top: 10px;
         max-width: 150px;
     }
+
+    .nav-blog-link {
+        display: none;
+    }
 }
