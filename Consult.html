@@ -1,54 +1,277 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" style="scroll-padding-top: 100px;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book a free consultation with Dynamic Fit Tech to transform your fitness business with custom websites, apps, and more.">
     <title>Book a Free Consultation | Dynamic Fit Tech</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.8;
+            font-size: 1.125rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #23cd32;
+            text-align: center;
+        }
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 1.5rem 3rem;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(35, 205, 50, 0.2);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .logo img {
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin-left: 2.5rem;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #23cd32;
+        }
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: #23cd32;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .consult-container {
+            max-width: 700px;
+            margin: 8rem auto 4rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        .consult-container h2 {
+            margin-bottom: 1.5rem;
+        }
+        .consult-container p {
+            font-size: 1.25rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        form {
+            display: grid;
+            gap: 1.5rem;
+        }
+        label {
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-align: left;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1.125rem;
+            transition: border-color 0.3s ease;
+        }
+
+        select {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgb(104, 103, 103);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #23cd32;
+        }
+        input::placeholder, textarea::placeholder {
+            color: #aaa;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .radio-group {
+            display: flex;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+        }
+        .radio-group input {
+            width: auto;
+            margin-right: 0.5rem;
+        }
+        button {
+            background: #23cd32;
+            color: #fff;
+            padding: 1rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        button:hover {
+            background: #1ea828;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(35, 205, 50, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            background: #0a0a0a;
+            padding: 3rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 10, 0.95);
+                padding: 1rem 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            .consult-container {
+                margin: 6rem 1rem 2rem;
+                padding: 1.5rem;
+            }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.75rem; }
+        }
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            input, select, textarea {
+                padding: 0.75rem;
+                font-size: 1rem;
+            }
+            button {
+                padding: 0.75rem;
+                font-size: 1rem;
+            }
+            .radio-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
-
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="bg-white shadow-lg rounded-lg p-6 max-w-lg w-full">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">Book Your Free Consultation</h2>
-        <p class="text-gray-600 mb-6">Tell us how we can help transform your fitness business.</p>
-
-        <form id="consultForm" class="space-y-4">
-            <!-- Full Name -->
-            <div>
-                <label class="block text-gray-700 font-medium">Full Name</label>
-                <input type="text" name="name" required
-                    class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-green-400">
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/Logo.webp" alt="Dynamic Fit Tech Logo">
+                </a>
             </div>
+            <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">How We Help</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <!-- Email Address -->
+    <!-- Consultation Form -->
+    <div class="consult-container">
+        <h1>Dynamic Fit Tech</h1>
+        <h2>Book Your Free Consultation</h2>
+        <p>Tell us how we can help transform your fitness business.</p>
+        <form id="consultForm">
             <div>
-                <label class="block text-gray-700 font-medium">Email Address</label>
-                <input type="email" name="email" required
-                    class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-green-400">
+                <label>Full Name</label>
+                <input type="text" name="name" required>
             </div>
-
-            <!-- Business Name -->
             <div>
-                <label class="block text-gray-700 font-medium">Business Name</label>
-                <input type="text" name="business_name" required
-                    class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-green-400">
+                <label>Email Address</label>
+                <input type="email" name="email" required>
             </div>
-
-            <!-- Website -->
             <div>
-                <label class="block text-gray-700 font-medium">Website (if applicable)</label>
-                <input type="url" name="website"
-                    class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-green-400"
-                    placeholder="https://yourwebsite.com">
+                <label>Business Name</label>
+                <input type="text" name="business_name" required>
             </div>
-
-            <!-- Help Needed -->
             <div>
-                <label class="block text-gray-700 font-medium">What do you need help with?</label>
-                <select name="help_needed" required
-                    class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-green-400">
+                <label>Website (if applicable)</label>
+                <input type="url" name="website" placeholder="https://yourwebsite.com">
+            </div>
+            <div>
+                <label>What do you need help with?</label>
+                <select name="help_needed" required>
+                    <option value="" disabled selected>Select an option</option>
                     <option value="Website Design & Development">Website Design and Development</option>
                     <option value="SEO & Online Visibility">SEO and Online Visibility</option>
                     <option value="Membership & Booking System">Membership and Booking System</option>
@@ -57,52 +280,47 @@
                     <option value="Other">Other (Please specify below)</option>
                 </select>
             </div>
-
-            <!-- Additional Details -->
             <div>
-                <label class="block text-gray-700 font-medium">Additional Details</label>
-                <textarea name="additional_details" rows="4"
-                    class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-green-400"
-                    placeholder="Tell us more about your requirements..."></textarea>
+                <label>Additional Details</label>
+                <textarea name="additional_details" rows="4" placeholder="Tell us more about your requirements..."></textarea>
             </div>
-
-            <!-- Preferred Consultation Method -->
             <div>
-                <label class="block text-gray-700 font-medium">Preferred Consultation Method</label>
-                <div class="flex gap-4 mt-2">
-                    <label class="flex items-center"><input type="radio" name="consultation_method" value="Teams"
-                            required class="mr-2"> Teams</label>
-                    <label class="flex items-center"><input type="radio" name="consultation_method" value="Phone Call"
-                            class="mr-2"> Phone Call</label>
+                <label>Preferred Consultation Method</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="consultation_method" value="Teams" required> Teams</label>
+                    <label><input type="radio" name="consultation_method" value="Phone Call"> Phone Call</label>
                 </div>
             </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition">
-                Submit Consultation Request
-            </button>
+            <button type="submit">Submit Consultation Request</button>
         </form>
     </div>
 
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Dynamic Fit Tech. All rights reserved.</p>
+    </footer>
+
     <script>
-    document.getElementById("consultForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
+        emailjs.init("_PSlmVL5WjMgyj3zX"); // Initialize EmailJS with your public key
+        document.getElementById("consultForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            emailjs.sendForm("service_5f04hcr", "template_m7hkszj", this, "_PSlmVL5WjMgyj3zX")
+                .then(response => {
+                    console.log("✅ Email Sent Successfully", response);
+                    alert("Your consultation request has been submitted successfully!");
+                    this.reset();
+                })
+                .catch(error => {
+                    console.error("❌ Email Sending Failed", error);
+                    alert("Failed to send consultation request. Please try again.");
+                });
+        });
 
-    console.log("🚀 Capturing Form Data Before Sending:");
-
-    emailjs.sendForm("service_5f04hcr", "template_m7hkszj", this, "_PSlmVL5WjMgyj3zX")
-    .then(response => {
-        console.log("✅ Email Sent Successfully", response);
-        alert("Your consultation request has been submitted successfully!");
-        this.reset();
-    })
-    .catch(error => {
-        console.error("❌ Email Sending Failed", error);
-        alert("Failed to send consultation request. Please try again.");
-    });
-});
-
+        // Hamburger menu toggle (assumes script.js isn't linked here)
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
     </script>
 </body>
-
 </html>

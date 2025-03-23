@@ -1,0 +1,19 @@
+{
+  "name": "dynamic-fit-tech",
+  "version": "1.0.0",
+  "description": "Dynamic Fit Tech website",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000",
+    "build": "echo 'No build step required for static HTML'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^15.1.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "live-server": "^1.2.2"
+  }
+}

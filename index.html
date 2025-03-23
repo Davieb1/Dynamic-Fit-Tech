@@ -1,33 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-padding-top: 100px;"> <!-- Offset for sticky header -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dynamic Fit Tech - Your Fitness Business, Digitally Transformed. We specialize in high-performance fitness websites, scalable apps, automation, and lead generation.">
-    <title>Dynamic Fit Tech</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Dynamic Fit Tech - Your Fitness Business, Digitally Transformed. We specialise in high-performance fitness websites, scalable apps, automation, and lead generation.">
+    <title>Dynamic Fit Tech | Fitness Business Solutions</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- External Scripts -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Header -->
     <header>
         <nav>
             <div class="logo">
                 <a href="index.html">
-                <img src="images/Logo.webp" alt="Dynamic Fit Tech Logo"></a>
+                    <img src="images/Logo.webp" alt="Dynamic Fit Tech Logo">
+                </a>
             </div>
-
-            <div class="hamburger" onclick="toggleMenu()">
-                &#9776;
-            </div>
+            <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu">☰</div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">How We Help</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li class="nav-blog-link"><a href="blog.html">Blog</a></li>
+                <li class="nav-blog-link"><a href="blog.html" class="nav-blog">Blog</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
             </ul>
             <button class="cta-btn" onclick="openAuditTool()">Run Business Audit</button>
         </nav>
@@ -38,152 +41,213 @@
         <h1>Dynamic Fit Tech</h1>
         <h2>Your Fitness Business, <span>Digitally Transformed</span></h2>
         <div class="buttons">
-            <button class="green-btn" onclick="openAuditTool()">Run Business Audit</button>
-            <button class="green-btn"><a href="Consult.html" target="_blank">Book Free Consultation</a></button>
+            <a href="Consult.html" target="_blank" class="green-btn">Book Free Consultation</a>
         </div>
     </section>
 
     <!-- Business Audit Modal -->
     <div id="auditModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeAuditTool()">&times;</span>
+        <div class="modal-content compact-modal"> <!-- Added compact-modal class -->
+            <span class="close" onclick="closeAuditTool()" aria-label="Close modal">×</span>
             <h2>Business Audit Tool</h2>
             <form id="auditForm">
-                <p>1. Does your website generate leads?</p>
-                <select name="question1">
-                    <option value="1">No</option>
-                    <option value="2">Rarely</option>
-                    <option value="3">Sometimes</option>
-                    <option value="4">Often</option>
-                    <option value="5">Yes</option>
+                <p>1. How effectively does your website attract new clients or members?</p>
+                <select name="question1" required>
+                    <option value="1">Not at all</option>
+                    <option value="2">Poorly (fewer than 5 leads per month)</option>
+                    <option value="3">Moderately (5-20 leads per month)</option>
+                    <option value="4">Well (20-50 leads per month)</option>
+                    <option value="5">Very well (50+ leads per month)</option>
                 </select>
-                <p>2. Do you rank on Google’s first page?</p>
-                <select name="question2">
-                    <option value="1">No</option>
-                    <option value="2">Rarely</option>
-                    <option value="3">Sometimes</option>
-                    <option value="4">Often</option>
-                    <option value="5">Yes</option>
+                <p>2. How visible is your fitness business on search engines like Google?</p>
+                <select name="question2" required>
+                    <option value="1">Not visible (not on the first 5 pages)</option>
+                    <option value="2">Low visibility (pages 3-5)</option>
+                    <option value="3">Moderate visibility (page 2)</option>
+                    <option value="4">Good visibility (bottom of page 1)</option>
+                    <option value="5">High visibility (top of page 1)</option>
                 </select>
-                <p>3. Is your website mobile-responsive?</p>
-                <select name="question3">
-                    <option value="1">No</option>
-                    <option value="2">Rarely</option>
-                    <option value="3">Sometimes</option>
-                    <option value="4">Often</option>
-                    <option value="5">Yes</option>
+                <p>3. Does your website provide a seamless experience on mobile devices?</p>
+                <select name="question3" required>
+                    <option value="1">No, it’s not mobile-friendly</option>
+                    <option value="2">Somewhat, but it has issues (e.g., slow loading, broken layout)</option>
+                    <option value="3">Yes, but it could be improved</option>
+                    <option value="4">Yes, it works well on mobile</option>
+                    <option value="5">Yes, it’s fully optimized for mobile</option>
                 </select>
-                <p>4. Do you have an online booking system?</p>
-                <select name="question4">
-                    <option value="1">No</option>
-                    <option value="2">Rarely</option>
-                    <option value="3">Sometimes</option>
-                    <option value="4">Often</option>
-                    <option value="5">Yes</option>
+                <p>4. How do clients book your services or classes?</p>
+                <select name="question4" required>
+                    <option value="1">Manually (e.g., phone, email, in-person)</option>
+                    <option value="2">Through a third-party app (e.g., Mindbody, ClassPass)</option>
+                    <option value="3">Using a basic form on my website</option>
+                    <option value="4">With an integrated online booking system on my website</option>
+                    <option value="5">With a fully automated booking and payment system</option>
                 </select>
-                <p>5. Are you running any paid ads or SEO campaigns?</p>
-                <select name="question5">
-                    <option value="1">No</option>
-                    <option value="2">Rarely</option>
-                    <option value="3">Sometimes</option>
-                    <option value="4">Often</option>
-                    <option value="5">Yes</option>
+                <p>5. How are you currently marketing your fitness business online?</p>
+                <select name="question5" required>
+                    <option value="1">Not marketing online at all</option>
+                    <option value="2">Basic social media presence only</option>
+                    <option value="3">Running occasional paid ads (e.g., Google Ads, social media ads)</option>
+                    <option value="4">Investing in SEO and content marketing</option>
+                    <option value="5">Using a comprehensive strategy (SEO, paid ads, email marketing, etc.)</option>
                 </select>
+                <p>6. What’s the biggest challenge you’re facing with your online presence?</p>
+                <textarea name="question6" rows="4" cols="50" placeholder="E.g., not enough website traffic, difficulty managing bookings, etc."></textarea>
                 <button type="submit">Submit</button>
             </form>
             <p id="auditResult"></p>
         </div>
     </div>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>At Dynamic Fit Tech, we help fitness businesses thrive online with custom websites, scalable apps, and lead-generating solutions.</p>
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="about-overlay">
+        <h2>About Dynamic Fit Tech</h2>
+        <p class="intro-text">We empower fitness businesses to dominate the digital space with cutting-edge websites, scalable apps, and lead-generating solutions tailored to your goals.</p>
         <div class="cards">
             <div class="card blur-effect">
-                <i class="fas fa-bolt"></i>
-                <h3>Fast and Reliable</h3>
-                <p>We build high-performance websites with speed and reliability in mind.</p>
+                <i class="fas fa-bolt fa-3x"></i>
+                <h3>Fast & Reliable</h3>
+                <p>High-performance websites built for speed and dependability—keeping your clients engaged.</p>
             </div>
             <div class="card blur-effect">
-                <i class="fas fa-chart-line"></i>
-                <h3>Growth-Oriented</h3>
-                <p>We implement proven strategies to scale your fitness business.</p>
+                <i class="fas fa-chart-line fa-3x"></i>
+                <h3>Growth-Driven</h3>
+                <p>Proven strategies to scale your fitness empire, from startups to established brands.</p>
             </div>
             <div class="card blur-effect">
-                <i class="fas fa-users"></i>
-                <h3>Client-Focused</h3>
-                <p>Your success is our priority. We tailor every solution to your needs.</p>
+                <i class="fas fa-users fa-3x"></i>
+                <h3>Client-Centric</h3>
+                <p>Your vision, our mission—custom solutions designed to fuel your success.</p>
             </div>
-        </div>
-    </section>
+        </div><br>
+        <a href="#contact" class="green-btn cta">Let’s Transform Your Business</a>
+    </div>
+</section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <h2>How We Help</h2>
-        <div class="cards">
-            <div class="card blur-effect"> <h3>Custom Websites</h3> <p>Tailor-made fitness websites that drive engagement.</p> </div>
-            <div class="card blur-effect"> <h3>Scalable Apps</h3> <p>Growth-focused mobile and web apps for fitness professionals.</p> </div>
-            <div class="card blur-effect"> <h3>Automation and Booking</h3> <p>Seamless scheduling and automation tools.</p> </div>
-            <div class="card blur-effect"> <h3>SEO and Lead Generation</h3> <p>Maximize online visibility and client reach.</p> </div>
+<!-- Services Section -->
+<section id="services" class="services">
+    <h2>How We Help</h2>
+    <p class="intro-text">From custom tech to powerful marketing, we deliver solutions that grow your fitness business.</p>
+    <div class="cards">
+        <div class="card blur-effect">
+            <i class="fas fa-desktop fa-3x"></i>
+            <h3>Custom Websites</h3>
+            <p>Stunning, responsive websites designed to captivate and convert your audience.</p>
         </div>
-    </section>
+        <div class="card blur-effect">
+            <i class="fas fa-mobile-alt fa-3x"></i>
+            <h3>Scalable Apps</h3>
+            <p>Future-proof mobile and web apps built to scale with your fitness empire.</p>
+        </div>
+        <div class="card blur-effect">
+            <i class="fas fa-calendar-check fa-3x"></i>
+            <h3>Automation & Booking</h3>
+            <p>Streamlined scheduling and automation to save time and boost efficiency.</p>
+        </div>
+        <div class="card blur-effect">
+            <i class="fas fa-rocket fa-3x"></i>
+            <h3>SEO & Lead Generation</h3>
+            <p>Dominate search rankings and attract more clients with proven strategies.</p>
+        </div>
+    </div>
+    <a href="Consult.html" target="_blank" class="green-btn cta">Explore Your Options</a>
+</section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <h2>Our Work</h2>
-        <p>A selection of projects that we have worked on.</p>
-        <div class="portfolio-content">
-            <div class="featured-project">
-                <img src="images/Featured-Site1.png" alt="Featured Project">
-                <button class="green-btn"><a href="https://davieb1.github.io/Fitness-Website-1/" target="_blank">View Project</a></button>
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio">
+    <h2>Our Portfolio</h2>
+    <p class="intro-text">Discover how we’ve transformed fitness businesses with innovative websites, apps, and platforms.</p>
+    <div class="portfolio-content">
+        <div class="featured-project">
+            <img src="images/Featured-Site1.png" alt="Featured Project" loading="lazy">
+            <div class="caption">
+                <h4>Fitness Pro Hub</h4>
+                <p>A custom website driving 200% more client sign-ups.</p>
             </div>
+            <button class="green-btn"><a href="https://davieb1.github.io/Fitness-Website-1/" target="_blank">View Live Site</a></button>
+        </div>
+        <div class="portfolio-carousel-container">
             <div class="portfolio-carousel">
-                <img src="images/Featured-Site2.png" alt="Project 2">
-                <img src="images/Featured-Site3.png" alt="Project 3">
-                <img src="images/Featured-Site4.png" alt="Project 4">
-                <img src="images/Featured-Site2.png" alt="Project 2">
-                <img src="images/Featured-Site3.png" alt="Project 3">
+                <div class="carousel-item">
+                    <img src="https://dynamicfittech.co.uk/images/Featured-Site2.png" alt="Project 2" loading="lazy">
+                    <div class="caption">
+                        <h4>FitPulse App</h4>
+                        <p>Mobile app with seamless workout tracking.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://dynamicfittech.co.uk/images/Featured-Site3.png" alt="Project 3" loading="lazy">
+                    <div class="caption">
+                        <h4>GymFlow Site</h4>
+                        <p>Modern gym site boosting online visibility.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://dynamicfittech.co.uk/images/Featured-Site4.png" alt="Project 4" loading="lazy">
+                    <div class="caption">
+                        <h4>TrainRiser</h4>
+                        <p>Training platform with integrated bookings.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://dynamicfittech.co.uk/images/Featured-Site5-Personal-Training.png" alt="Personal Training Site" loading="lazy">
+                    <div class="caption">
+                        <h4>CoreFit PT</h4>
+                        <p>Personal training site with lead generation.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+    <a href="Consult.html" target="_blank" class="green-btn cta">Start Your Project</a>
+</section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <h2>What Our Clients Say</h2>
-        <div class="cards">
-            <div class="card blur-effect">
-                <p>"Dynamic Fit Tech helped me grow my business exponentially!"</p>
-                <h4>John Doe</h4>
-            </div>
-            <div class="card blur-effect">
-                <p>"Amazing service! Highly recommend!"</p>
-                <h4>Jane Smith</h4>
-            </div>
-            <div class="card blur-effect">
-                <p>"Amazing service! Highly recommend!"</p>
-                <h4>Jane Smith</h4>
-            </div>
-            <!-- <div class="card blur-effect">
-                <p>"Amazing service! Highly recommend!"</p>
-                <h4>Jane Smith</h4>
-            </div> -->
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <p class="intro-text">Real results from fitness professionals who’ve transformed their businesses with us.</p>
+    <div class="cards">
+        <div class="card blur-effect testimonial">
+            <p>“Dynamic Fit Tech built us a sleek, fast website that tripled our online bookings in just three months. Their team’s expertise is unmatched!”</p>
+            <h4>Emma Carter</h4>
+            <span class="role">Owner, FitFlow Studio</span>
         </div>
-    </section>
+        <div class="card blur-effect testimonial">
+            <p>“The custom app they developed for my gym has streamlined everything—members love the ease of booking classes, and I’ve cut admin time in half.”</p>
+            <h4>Ryan Patel</h4>
+            <span class="role">Founder, PeakPulse Gym</span>
+        </div>
+        <div class="card blur-effect testimonial">
+            <p>“Their SEO strategies put my personal training business on the map. I’m now ranking top on Google and getting steady leads every week!”</p>
+            <h4>Sophie Nguyen</h4>
+            <span class="role">Head Trainer, CoreStrength PT</span>
+        </div>
+    </div>
+    <a href="Consult.html" target="_blank" class="green-btn cta">See How We Can Help You</a>
+</section>
 
-    <!-- Contact Form -->
-    <section id="contact" class="contact border-box">
-        <h2>Contact Us</h2>
-        <form id="contactForm">
-            <input type="text" name="name" placeholder="Your Name" required><br><br>
-            <input type="email" name="email" placeholder="Your Email" required><br><br>
-            <textarea name="message" placeholder="Your Message & Full Name" rows="4" required></textarea><br><br>
-            <button type="submit" class="green-btn">Send Message</button>
-        </form>
-    </section>
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <h2>Get In Touch</h2>
+    <p class="intro-text">Ready to elevate your fitness business? Drop us a message, and let’s build something extraordinary together.</p>
+    <form id="contactForm" class="contact-form">
+        <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+            <textarea name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+        </div>
+        <button type="submit" class="green-btn">Send Message</button>
+    </form>
+</section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Dynamic Fit Tech. All rights reserved.</p>
+        <p>© 2025 Dynamic Fit Tech. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
